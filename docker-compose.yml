@@ -1,0 +1,17 @@
+version: '3.5'
+
+services:
+  app:
+    container_name: test
+    build: ./
+    ports:
+      - '3000:3000'
+    tty: true
+    depends_on: [postgres]
+  postgres:
+    image: postgres:alpine
+    restart: always
+    ports:
+      - '8080:8080'
+    environment:
+      POSTGRES_PASSWORD: 123
