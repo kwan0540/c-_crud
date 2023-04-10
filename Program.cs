@@ -1,3 +1,4 @@
+using crud.Common;
 using crud.data;
 using crud.user;
 using crud.user.service;
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<CrudContext>(opt =>
     opt.UseNpgsql(builder.Configuration.GetConnectionString("WebApiDatabase")));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
